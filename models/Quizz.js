@@ -1,16 +1,17 @@
 // DataTypes est à importer dans chaque fichier de modèle
 const {DataTypes} = require('sequelize');
 
-module.exports = (sequelize) => sequelize.define('Category', {
+module.exports = (sequelize) => sequelize.define('Quizz', {
     title: {
-        type: DataTypes.STRING(40),
+        type: DataTypes.STRING(70),
         allowNull: false
     },
-    icon: {
+    image: {
         type: DataTypes.STRING(255),
         allowNull: true
     } 
  }, {
-     tableName: 'category',
-     underscored: true
+     tableName: 'quizz',
+     underscored: true,
+     timestamp: false
  })
