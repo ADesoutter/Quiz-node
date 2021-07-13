@@ -11,11 +11,15 @@ const Answer = require('./Answer')(sequelize);
 
 //-------------- Relations start---------------//
 
+Category.hasMany(Quizz);
+Quizz.belongsTo(Category);
 
+Quizz.hasMany(Question);
+Question.belongsTo(Quizz);
 
-
+Question.hasMany(Answer);
+Answer.belongsTo(Question);
 
 //-------------- Relations end---------------//
-
 
 module.exports = sequelize;
