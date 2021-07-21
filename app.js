@@ -5,6 +5,12 @@ const sequelize = require('./models');
 
 const PORT = process.env.PORT || 5000;
 
+
+// Configurer notre serveur pour utiliser ces routeurs
+const quizzRouter = require('./routers/quizzRouter');
+app.use('/quizz', quizzRouter);
+
+
 console.log('Checking Database connection...');
 
 sequelize.authenticate()
