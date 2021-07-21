@@ -6,10 +6,10 @@ module.exports = (sequelize) => sequelize.define('Quizz', {
         type: DataTypes.STRING(70),
         allowNull: false
     },
-    image: {
-        type: DataTypes.STRING(255),
-        allowNull: true
-    } 
+    // image: {
+    //     type: DataTypes.STRING(255),
+    //     allowNull: true
+    // } 
  }, {
      tableName: 'quizz',
      underscored: true,

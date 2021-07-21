@@ -7,5 +7,11 @@
   },
   "devDependencies": {
     "faker": "^5.5.3"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "v16.2.0"
   }
 }

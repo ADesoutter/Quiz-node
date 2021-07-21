@@ -1,13 +1,21 @@
 const sequelize = require("./models");
-const faker = require('faker');
+const faker = require("faker");
 
 console.log('Checking Database connection...');
+
+function generateQuizzs() {
+    for(let i=1; i<=10;i++) {
+        sequelize.models.Quizz.create({
+            title: faker.random.words(),
+        })
+    }
+}
 
 function generateQuestions() {
     for(let i=1; i<=10;i++) {
         sequelize.models.Question.create({
-            title: faker.random.words(7),
-            body: faker.lorem.paragraphs(2)
+            title: faker.lorem.sentence(),
+            body: faker.lorem.paragraphs(1)
         })
     }
 }
@@ -15,7 +23,7 @@ function generateQuestions() {
 function generateAnswers() {
     for(let i=1; i<=10;i++) {
         sequelize.models.Answer.create({
-            isCorrect: faker.random.bool(),
+            isCorrect: faker.datatype.boolean(),
             body: faker.lorem.sentence(),
         })
     }
@@ -29,6 +37,7 @@ sequelize.authenticate()
     // Synchroniser les modèles avec la BDD
     sequelize.sync({force: true})
     .then(()=> {
+        generateQuizzs();
         generateQuestions();
         generateAnswers();
 
